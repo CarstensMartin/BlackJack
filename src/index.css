@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /*
+  Background image from Sun Casino used
+  https://www.thesun.co.uk/wp-content/uploads/2021/12/JB-COMP-ONLINE-CASINO-DEC-15-1.jpg?strip=all&quality=100&w=1500&h=1000&crop=1
+  */
+  background: linear-gradient(to top, transparent, black),
+    url("./components/images/background.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
+}

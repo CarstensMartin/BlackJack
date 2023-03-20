@@ -1,0 +1,162 @@
+/* Main background & Card Images*/
+.player {
+  text-align: left;
+  color: white;
+  background: linear-gradient(
+    to right,
+    transparent,
+    black,
+    red,
+    black,
+    transparent
+  );
+}
+
+.cardImages {
+  width: 90px;
+  height: auto;
+  padding: 5px;
+}
+
+.gameIndex {
+  color: white;
+  background-color: transparent;
+}
+
+#blackJackHeader {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.results {
+  text-align: center;
+  justify-content: center;
+}
+
+.cardDisplay {
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameScoreButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: linear-gradient(
+    to right,
+    transparent,
+    transparent,
+    black,
+    transparent,
+    transparent
+  );
+}
+
+.score {
+  text-align: left;
+}
+
+/* Buttons */
+
+.playerButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+.actionButton {
+  width: 100%;
+  font-weight: bolder;
+}
+
+#startGame {
+  height: 6em;
+  width: 6em;
+  background-color: #d10000;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+}
+
+#loadGame {
+  height: 6em;
+  width: 6em;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+#hit {
+  height: 3em;
+  width: 6em;
+  border: 2px solid white;
+  border-top-left-radius: 3em;
+  border-top-right-radius: 3em;
+  background-color: rgb(50, 135, 60);
+  color: white;
+  margin-bottom: 1px;
+}
+
+#stand {
+  height: 3em;
+  width: 6em;
+  border: 2px solid white;
+  border-bottom-left-radius: 3em;
+  border-bottom-right-radius: 3em;
+  background-color: rgb(50, 135, 60);
+  color: white;
+  margin-top: 1px;
+}
+
+/* Only on larger devices with a mouse use hover
+ipad air width is 820px so should cover most devices*/
+@media only screen and (min-width: 825px) {
+  #startGame:hover {
+    background: #0000a3;
+  }
+
+  #hit:hover {
+    background: #0000a3;
+  }
+
+  #stand:hover {
+    background: #0000a3;
+  }
+}
+
+/* Display win, lost or push game*/
+
+#playerWinGame {
+  background: linear-gradient(
+    to right,
+    transparent,
+    black,
+    green,
+    black,
+    transparent
+  );
+}
+
+#dealerWinGame {
+  background: linear-gradient(
+    to right,
+    transparent,
+    black,
+    red,
+    black,
+    transparent
+  );
+}
+
+#pushWinGame {
+  background: linear-gradient(
+    to right,
+    transparent,
+    black,
+    orange,
+    black,
+    transparent
+  );
+}

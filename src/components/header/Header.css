@@ -1,0 +1,52 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigationSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+/* Header buttons*/
+.linkItemButton {
+  background: transparent;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  margin-top: 5px;
+}
+
+#topElementHeading {
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-top-left-radius: 10px;
+}
+
+#topElementHeading:hover {
+  background: linear-gradient(to right, blue, transparent);
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-top-left-radius: 10px;
+  padding: 10px;
+  color: white;
+  width: 100%;
+}
+
+#middleElementHeading:hover {
+  background: linear-gradient(to right, blue, transparent);
+  border-left: 2px solid white;
+  padding: 10px;
+  color: white;
+  width: 100%;
+}
+
+/* Image to right*/
+.navbarBrand {
+  padding: 10px;
+  height: auto;
+  width: 180px;
+}
