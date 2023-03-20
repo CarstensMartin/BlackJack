@@ -91,6 +91,17 @@ player says no the program should terminate.
 3. Handling betting isn’t required for this assessment
 4. You can use any programming language you’re comfortable with.
 
+## NOTES
+
+All users get fully tracked.
+
+* All information about the user
+* Screen recording of every user that logged on and their interaction the steps they followed including but not limited to mouse movement etc.
+
+<img src="./README Images/Screenshot Analytics.png" width="100%" />
+
+<img src="./README Images/Screenshot Recording.png" width="100%" />
+
 ## React Setup
 
 Follow these standard steps
