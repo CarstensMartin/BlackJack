@@ -58,6 +58,44 @@ function GamePlay(props) {
   const audioPush = new Audio(pushSound);
   const audioFlipCard = new Audio(flipCardSound);
 
+  // Stand, dealer gets cards until 17 or more
+  // Declare at the top for all functions to use
+  async function stand() {
+    setDisplayDealerSecondCard(true);
+    setDisplayActionButtons(false);
+    audioFlipCard.play();
+
+    let resolved = await new Promise((resolve) =>
+      setTimeout(
+        () => resolve(dealCardsToDealer(game.getDealerHandValue())),
+        2000
+      )
+    );
+    // Once resolved that dealer has a value of 17 or more, check who won
+    if (resolved) {
+      if (game.getDealerHandValue() > 21) {
+        setPlayerWonCount(playerWonCount + 1);
+        setPlayerWon(true);
+        audio.play();
+        setIsExploding(true);
+      } else if (game.playerHasWon()) {
+        setPlayerWonCount(playerWonCount + 1);
+        setPlayerWon(true);
+        audio.play();
+        setIsExploding(true);
+      } else if (game.dealerHasWon()) {
+        setDealerWonCount(dealerWonCount + 1);
+        setDealerWon(true);
+        audioLose.play();
+      } else if (game.isTie()) {
+        setTieCount(tieCount + 1);
+        setTie(true);
+        audioPush.play();
+      }
+      setDisplayStartGameButton(true);
+    }
+  }
+
   function startNewGame() {
     // If deck of cards are below 75, initialize a new object / deck of cards
     if (game.length === 0 || game.deck.deck.length < 75) {
@@ -153,43 +191,6 @@ function GamePlay(props) {
         }, 1000);
       }
     });
-  }
-
-  // Stand, dealer gets cards until 17 or more
-  async function stand() {
-    setDisplayDealerSecondCard(true);
-    setDisplayActionButtons(false);
-    audioFlipCard.play();
-
-    let resolved = await new Promise((resolve) =>
-      setTimeout(
-        () => resolve(dealCardsToDealer(game.getDealerHandValue())),
-        2000
-      )
-    );
-    // Once resolved that dealer has a value of 17 or more, check who won
-    if (resolved) {
-      if (game.getDealerHandValue() > 21) {
-        setPlayerWonCount(playerWonCount + 1);
-        setPlayerWon(true);
-        audio.play();
-        setIsExploding(true);
-      } else if (game.playerHasWon()) {
-        setPlayerWonCount(playerWonCount + 1);
-        setPlayerWon(true);
-        audio.play();
-        setIsExploding(true);
-      } else if (game.dealerHasWon()) {
-        setDealerWonCount(dealerWonCount + 1);
-        setDealerWon(true);
-        audioLose.play();
-      } else if (game.isTie()) {
-        setTieCount(tieCount + 1);
-        setTie(true);
-        audioPush.play();
-      }
-      setDisplayStartGameButton(true);
-    }
   }
 
   // Get the first card value of Dealer, second card is hidden
