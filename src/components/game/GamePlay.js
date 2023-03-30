@@ -3,6 +3,7 @@ import React from "react";
 import DisplayCards from "./displayCards/DisplayCards";
 import ConfettiExplosion from "react-confetti-explosion";
 import { Game } from "./Game";
+import cardImages from "../images/index";
 // Import game sounds
 // Sound credit - www.pixabay.com
 import victorySound1 from "../sound/victory 1.mp3";
@@ -223,8 +224,16 @@ function GamePlay(props) {
                     <h2>Dealer Hand: {getFirstCardValue(dealerHand)}</h2>
                   </div>
                   <div className="cardDisplay">
-                    <DisplayCards index="front card" card={dealerHand[0]} />
-                    <DisplayCards index="Back card" card="BACK" />
+                    <DisplayCards
+                      index="front card"
+                      card={dealerHand[0]}
+                      images={cardImages}
+                    />
+                    <DisplayCards
+                      index="Back card"
+                      card="BACK"
+                      images={cardImages}
+                    />
                   </div>
                 </div>
               ) : (
@@ -239,6 +248,7 @@ function GamePlay(props) {
                         key={"dealer-card-" + index}
                         index={"Dealer " + index}
                         card={card}
+                        images={cardImages}
                       />
                     ))}
                   </div>
@@ -358,6 +368,7 @@ function GamePlay(props) {
                     key={"player-card-" + index}
                     index={"Player " + index}
                     card={card}
+                    images={cardImages}
                   />
                 ))}
               </div>

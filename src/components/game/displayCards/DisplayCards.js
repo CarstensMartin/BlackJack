@@ -1,8 +1,8 @@
 import React from "react";
-import cardImages from "./index";
 
 function DisplayCards(props) {
   let index = props.index;
+  let cardImages = props.images;
   let picture;
   let alt;
 
