@@ -1,5 +1,5 @@
 import "./GamePlay.css";
-import React from "react";
+import React, { useEffect } from "react";
 import DisplayCards from "./displayCards/DisplayCards";
 import ConfettiExplosion from "react-confetti-explosion";
 import { Game } from "./Game";
@@ -19,6 +19,8 @@ function GamePlay(props) {
   //Set State of all variables
   const [isExploding, setIsExploding] = React.useState(false);
   const [game, setGame] = React.useState([]);
+
+  
 
   const [display, setDisplay] = React.useState(false);
   const [displayStartGameButton, setDisplayStartGameButton] =
@@ -53,10 +55,29 @@ function GamePlay(props) {
   ][Math.floor(Math.random() * 4)];
 
   // Initialize game sounds
-  const audio = new Audio(victorySound);
+  const audioWin = new Audio(victorySound);
   const audioLose = new Audio(loseSound);
   const audioPush = new Audio(pushSound);
   const audioFlipCard = new Audio(flipCardSound);
+
+  // Stand, dealer gets cards until 17 or more
+  // Deal cards to dealer and make use of setTimeout to make it look real time
+  function dealCardsToDealer(i) {
+    return new Promise((resolve) => {
+      if (i >= 17) {
+        resolve(true);
+      } else {
+        game.dealDealerCard();
+        audioFlipCard.play();
+        setDealerHand(game.getDealerHand());
+        setDealerHandValue(game.getDealerHandValue());
+
+        setTimeout(function () {
+          resolve(dealCardsToDealer(game.getDealerHandValue()));
+        }, 1000);
+      }
+    });
+  }
 
   // Stand, dealer gets cards until 17 or more
   // Declare at the top for all functions to use
@@ -76,12 +97,12 @@ function GamePlay(props) {
       if (game.getDealerHandValue() > 21) {
         setPlayerWonCount(playerWonCount + 1);
         setPlayerWon(true);
-        audio.play();
+        audioWin.play();
         setIsExploding(true);
       } else if (game.playerHasWon()) {
         setPlayerWonCount(playerWonCount + 1);
         setPlayerWon(true);
-        audio.play();
+        audioWin.play();
         setIsExploding(true);
       } else if (game.dealerHasWon()) {
         setDealerWonCount(dealerWonCount + 1);
@@ -174,25 +195,6 @@ function GamePlay(props) {
     }
   }
 
-  // Stand, dealer gets cards until 17 or more
-  // Deal cards to dealer and make use of setTimeout to make it look real time
-  function dealCardsToDealer(i) {
-    return new Promise((resolve) => {
-      if (i >= 17) {
-        resolve(true);
-      } else {
-        game.dealDealerCard();
-        audioFlipCard.play();
-        setDealerHand(game.getDealerHand());
-        setDealerHandValue(game.getDealerHandValue());
-
-        setTimeout(function () {
-          resolve(dealCardsToDealer(game.getDealerHandValue()));
-        }, 1000);
-      }
-    });
-  }
-
   // Get the first card value of Dealer, second card is hidden
   function getFirstCardValue(card) {
     let value = 0;
@@ -260,7 +262,7 @@ function GamePlay(props) {
         </div>
       </div>
 
-      <br />
+      
 
       <div className="gameScoreButton">
         <div className="score">
@@ -335,7 +337,6 @@ function GamePlay(props) {
           )}
         </div>
       </div>
-      <br />
 
       <div className="results">
         {playerWon && (
@@ -356,7 +357,7 @@ function GamePlay(props) {
         {isExploding && <ConfettiExplosion />}
       </div>
 
-      <div className="player">
+      <div className="player bottomScreenHand">
         <div className="hand">
           {display && (
             <div>
