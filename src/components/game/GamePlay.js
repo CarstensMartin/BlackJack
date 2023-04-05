@@ -224,7 +224,7 @@ function GamePlay(props) {
               {!displayDealerSecondCard ? (
                 <div>
                   <div className="value">
-                    <h1 id="blackJackHeader">BlackJack</h1>
+                    
                     <h2>Dealer Hand: {getFirstCardValue(dealerHand)}</h2>
                   </div>
                   <div className="cardDisplay">
@@ -242,7 +242,6 @@ function GamePlay(props) {
                 </div>
               ) : (
                 <div>
-                  <h1 id="blackJackHeader">BlackJack</h1>
                   <div className="value">
                     <h2>Dealer Hand: {dealerHandValue}</h2>
                   </div>
@@ -356,7 +355,7 @@ function GamePlay(props) {
         {isExploding && <ConfettiExplosion />}
       </div>
 
-      <div className="player bottomScreenHand">
+      <div className="player">
         <div className="hand">
           {display && (
             <div>

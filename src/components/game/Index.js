@@ -75,7 +75,7 @@ function Index() {
     );
   } else {
     return (
-      <div>
+      <div id="mainGamePlay">
         <div id="displayUsername">
           <h2 id="welcomePlayer">Welcome {name}</h2>
           <button id="exitGame" onClick={() => setDisplay(false)}>

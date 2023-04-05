@@ -12,28 +12,28 @@
   );
 }
 
-/* Bottom of screen spacing*/
-.bottomScreenHand {
+/* Bottom/Top of screen spacing*/
+.gameIndex {
+  margin-top: 15px;
   margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 825px) {
-  .bottomScreenHand {
+  .gameIndex {
     margin-bottom: 25px;
   }
 }
 
 .cardImages {
-  width: 90px;
+  width: 21%;
   height: auto;
   padding: 5px;
+  max-width: 90px;
 }
 
 @media only screen and (max-width: 825px) {
   .cardImages {
-    width: 60px;
-    height: auto;
-    padding: 2px;
+    padding: 3px;
   }
 }
 
@@ -58,6 +58,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
 }
 
 .gameScoreButton {
