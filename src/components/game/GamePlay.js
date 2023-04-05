@@ -20,8 +20,6 @@ function GamePlay(props) {
   const [isExploding, setIsExploding] = React.useState(false);
   const [game, setGame] = React.useState([]);
 
-  
-
   const [display, setDisplay] = React.useState(false);
   const [displayStartGameButton, setDisplayStartGameButton] =
     React.useState(true);
@@ -44,6 +42,9 @@ function GamePlay(props) {
 
   if (game.length !== 0) {
     deckLength = game.deck.deck.length;
+  } else {
+    let game = new Game(playerName);
+    setGame(game);
   }
 
   // Play random victory sound
@@ -261,8 +262,6 @@ function GamePlay(props) {
           )}
         </div>
       </div>
-
-      
 
       <div className="gameScoreButton">
         <div className="score">

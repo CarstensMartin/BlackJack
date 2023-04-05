@@ -20,7 +20,7 @@ function Header() {
           </Link>
         </div>
 
-        <div className="navigationBarSection">
+        <div>
           <img
             className="navbarBrand"
             id="gameGlobalNavbarLogo"
