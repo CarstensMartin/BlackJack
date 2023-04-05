@@ -2,6 +2,7 @@
 
 ## Deployed
 
+blackjack-carstens-martin.vercel.app
 https://blackjack-carstens-martin.netlify.app/
 
 ## Blackjack rules
