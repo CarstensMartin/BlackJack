@@ -223,10 +223,10 @@ function GamePlay(props) {
             <div>
               {!displayDealerSecondCard ? (
                 <div>
-                  <div className="value">
-                    
-                    <h2>Dealer Hand: {getFirstCardValue(dealerHand)}</h2>
-                  </div>
+                  <h2 className="valueHand">
+                    Dealer Hand: {getFirstCardValue(dealerHand)}
+                  </h2>
+
                   <div className="cardDisplay">
                     <DisplayCards
                       index="front card"
@@ -242,9 +242,8 @@ function GamePlay(props) {
                 </div>
               ) : (
                 <div>
-                  <div className="value">
-                    <h2>Dealer Hand: {dealerHandValue}</h2>
-                  </div>
+                  <h2 className="valueHand">Dealer Hand: {dealerHandValue}</h2>
+
                   <div className="cardDisplay">
                     {dealerHand.map((card, index) => (
                       <DisplayCards
@@ -264,16 +263,16 @@ function GamePlay(props) {
 
       <div className="gameScoreButton">
         <div className="score">
-          <h6>Player Won:</h6>
-          <h6>Dealer Won:</h6>
-          <h6>Push:</h6>
-          <h6>Cards in Deck:</h6>
+          <h6 className="score">Player Won:</h6>
+          <h6 className="score">Dealer Won:</h6>
+          <h6 className="score">Push:</h6>
+          <h6 className="score">Cards in Deck:</h6>
         </div>
         <div className="score">
-          <h6>{playerWonCount}</h6>
-          <h6>{dealerWonCount}</h6>
-          <h6>{tieCount}</h6>
-          <h6> {deckLength}</h6>
+          <h6 className="score">{playerWonCount}</h6>
+          <h6 className="score">{dealerWonCount}</h6>
+          <h6 className="score">{tieCount}</h6>
+          <h6 className="score"> {deckLength}</h6>
         </div>
 
         <div className="playerButtons">
@@ -337,21 +336,10 @@ function GamePlay(props) {
       </div>
 
       <div className="results">
-        {playerWon && (
-          <div id="playerWinGame">
-            <h2>You Won!</h2>
-          </div>
-        )}
-        {dealerWon && (
-          <div id="dealerWinGame">
-            <h3>Dealer Won</h3>
-          </div>
-        )}
-        {tie && (
-          <div id="pushWinGame">
-            <h3>Its a Push</h3>
-          </div>
-        )}
+        {playerWon && <h2 id="playerWinGame">You Won!</h2>}
+        {dealerWon && <h3 id="dealerWinGame">Dealer Won</h3>}
+        {tie && <h3 id="pushWinGame">Its a Push</h3>}
+        {!playerWon && !dealerWon && !tie && <div id="noResultYet"></div>}
         {isExploding && <ConfettiExplosion />}
       </div>
 
@@ -359,9 +347,8 @@ function GamePlay(props) {
         <div className="hand">
           {display && (
             <div>
-              <div className="value">
-                <h2>Player Hand: {playerHandValue}</h2>
-              </div>
+              <h2 className="valueHand">Player Hand: {playerHandValue}</h2>
+
               <div className="cardDisplay">
                 {playerHand.map((card, index) => (
                   <DisplayCards

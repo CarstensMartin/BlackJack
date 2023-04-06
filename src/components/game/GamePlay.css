@@ -18,23 +18,22 @@
   margin-bottom: 50px;
 }
 
-@media only screen and (max-width: 825px) {
+@media only screen and (max-width: 900px) {
   .gameIndex {
     margin-bottom: 25px;
   }
 }
 
-.cardImages {
+.cardImageDiv {
   width: 21%;
   height: auto;
   padding: 5px;
   max-width: 90px;
 }
 
-@media only screen and (max-width: 825px) {
-  .cardImages {
-    padding: 3px;
-  }
+.cardImages {
+  width: 100%;
+  height: auto;
 }
 
 .gameIndex {
@@ -53,7 +52,6 @@
 }
 
 .cardDisplay {
-  height: 120px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -79,12 +77,18 @@
 
 .score {
   text-align: left;
+  font-size: 1rem;
+}
+
+.valueHand {
+  font-size: 1.1rem;
 }
 
 /* Buttons */
 .playerButtons {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .actionButton {
@@ -157,6 +161,7 @@ ipad air width is 820px so should cover most devices*/
     black,
     transparent
   );
+  font-size: 1rem;
 }
 
 #dealerWinGame {
@@ -168,6 +173,7 @@ ipad air width is 820px so should cover most devices*/
     black,
     transparent
   );
+  font-size: 1rem;
 }
 
 #pushWinGame {
@@ -179,4 +185,35 @@ ipad air width is 820px so should cover most devices*/
     black,
     transparent
   );
+  font-size: 1rem;
+}
+
+#noResultYet {
+  padding: 0.8rem;
+}
+
+/* Mobile views */
+
+/* Media Query for portrait view mobile */
+@media only screen and (max-width: 900px) {
+  .cardImages {
+    padding: 3px;
+  }
+}
+
+/* Mobile view landscape*/
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+  .cardImages {
+    width: 100%;
+    clip-path: inset(0px 0px 70% 0px);
+  }
+  .cardDisplay {
+    height: auto;
+  }
+
+  .cardImageDiv {
+    width: 21%;
+    height: 50px;
+    max-width: 90px;
+  }
 }

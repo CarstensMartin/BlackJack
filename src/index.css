@@ -25,4 +25,13 @@ code {
   text-align: center;
   padding-left: 10%;
   padding-right: 10%;
+  max-height: 100vh;
+}
+/* Mobile landscape view Media queries remove menu bar */
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+  .App {
+    padding-left: 5%;
+    padding-right: 0;
+    max-height: 100vh;
+  }
 }

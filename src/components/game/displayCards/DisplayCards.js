@@ -39,7 +39,12 @@ function DisplayCards(props) {
     picture = cardImages[`${cardValue}-${cardSuit}`];
   }
 
-  return <img src={picture} alt={alt} key={index} className="cardImages" />;
+  return (
+    <div className="cardImageDiv">
+      {" "}
+      <img src={picture} alt={alt} key={index} className="cardImages" />
+    </div>
+  );
 }
 
 export default DisplayCards;

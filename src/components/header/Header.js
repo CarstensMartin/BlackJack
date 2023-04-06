@@ -24,7 +24,7 @@ function Header() {
           <img
             className="navbarBrand"
             id="gameGlobalNavbarLogo"
-            src="https://www.gamesglobal.com/images/gg_hold_screen.jpg"
+            src="./gg_hold_screen.jpg"
             alt="Games Global logo"
           />
         </div>

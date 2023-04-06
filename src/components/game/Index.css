@@ -15,10 +15,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: -10px;
 }
 
 #welcomePlayer {
   padding-left: 10px;
+  font-size: 1.1rem;
 }
 
 /* Input to capture userName Page items*/
@@ -77,6 +79,7 @@
   border-left: 2px solid transparent;
   border-top: 2px solid transparent;
   border-bottom-right-radius: 10px;
+  font-size: 1.1rem;
 }
 
 #exitGame:hover {
@@ -86,4 +89,15 @@
   border-bottom: 2px solid white;
   border-left: 2px solid transparent;
   border-bottom-right-radius: 10px;
+}
+
+/* Mobile landscape view Media queries remove menu bar */
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+  #displayUsername {
+    justify-content: flex-end;
+    margin-bottom: -30px;
+  }
+  #welcomePlayer {
+    display: none;
+  }
 }
