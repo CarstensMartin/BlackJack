@@ -92,7 +92,7 @@
 }
 
 /* Mobile landscape view Media queries remove menu bar */
-@media only screen and (max-width: 900px) and (orientation: landscape) {
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
   #displayUsername {
     justify-content: flex-end;
     margin-bottom: -30px;

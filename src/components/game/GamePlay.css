@@ -18,7 +18,7 @@
   margin-bottom: 50px;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .gameIndex {
     margin-bottom: 25px;
   }
@@ -137,7 +137,7 @@
 
 /* Only on larger devices with a mouse use hover
 ipad air width is 820px so should cover most devices*/
-@media only screen and (min-width: 825px) {
+@media only screen and (min-width: 1000px) {
   #startGame:hover {
     background: #0000a3;
   }
@@ -195,14 +195,14 @@ ipad air width is 820px so should cover most devices*/
 /* Mobile views */
 
 /* Media Query for portrait view mobile */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .cardImages {
     padding: 3px;
   }
 }
 
 /* Mobile view landscape*/
-@media only screen and (max-width: 900px) and (orientation: landscape) {
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
   .cardImages {
     width: 100%;
     clip-path: inset(0px 0px 70% 0px);

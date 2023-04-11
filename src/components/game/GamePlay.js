@@ -96,21 +96,21 @@ function GamePlay(props) {
     // Once resolved that dealer has a value of 17 or more, check who won
     if (resolved) {
       if (game.getDealerHandValue() > 21) {
-        setPlayerWonCount(playerWonCount + 1);
+        setPlayerWonCount(prevCount => (prevCount + 1));
         setPlayerWon(true);
         audioWin.play();
         setIsExploding(true);
       } else if (game.playerHasWon()) {
-        setPlayerWonCount(playerWonCount + 1);
+        setPlayerWonCount(prevCount => (prevCount + 1));
         setPlayerWon(true);
         audioWin.play();
         setIsExploding(true);
       } else if (game.dealerHasWon()) {
-        setDealerWonCount(dealerWonCount + 1);
+        setDealerWonCount(prevCount => (prevCount + 1));
         setDealerWon(true);
         audioLose.play();
       } else if (game.isTie()) {
-        setTieCount(tieCount + 1);
+        setTieCount(prevCount => (prevCount + 1));
         setTie(true);
         audioPush.play();
       }
@@ -189,7 +189,7 @@ function GamePlay(props) {
       stand();
     } // Check if player has busted
     else if (game.getPlayerHandValue() > 21) {
-      setDealerWonCount(dealerWonCount + 1);
+      setDealerWonCount(prevCount => (prevCount + 1));
       setDisplayStartGameButton(true);
       setDealerWon(true);
       audioLose.play();
